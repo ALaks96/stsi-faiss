@@ -75,10 +75,11 @@ def main():
 
     # Fetch results
     if user_input:
-        results, Time = search([user_input], model, faiss_index, num_results)
+        results, Time = search(user_input, model, faiss_index)
         st.write(f"""**Elapsed time**: {Time}""")
         for result in results:
-            productInfo = (data[data["_unit_id"]==result]["product_title"])
+            print(result)
+            productInfo = (data[data["_unit_id"]==result][["product_title","url"]])
         # Get individual results
             st.write(
                 f"""**{productInfo}** 

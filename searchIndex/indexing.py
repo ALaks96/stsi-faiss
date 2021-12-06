@@ -9,12 +9,8 @@ import torch
 # Load product database
 df=pd.read_csv("data/product_kaggle.csv", encoding = "ISO-8859-1" )
 
-# get rid of products without a description
-df['product_description'] = str(df['product_title']) + str(df['product_description']) 
-df = df[df['product_description'].notna()] 
-df['id'] = df.index
 # Create a product description object
-data=df.product_description.to_list()
+data=df.product_title.to_list()
 
 # Load pre-trained sentence transformer fine-tuned to STS
 model = SentenceTransformer('distilbert-base-nli-mean-tokens')
