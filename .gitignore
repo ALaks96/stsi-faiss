@@ -1,0 +1,8 @@
+pyvenv.cfg
+Scripts/
+Lib/
+Include/
+etc/
+**/*.csv
+.vscode
+/searchIndex/models/
